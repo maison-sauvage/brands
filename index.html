@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Maison Sauvage</title>
+<meta name="theme-color" content="#0e0b0a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0b0a;--ink:#f4ede4;--muted:rgba(244,237,228,.74);--gold:#d8a45a;--gold2:#f3d79b;--rouge:#a3141e;--wine:#5c0f15;--glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.14);--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+body{font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.serif{font-family:Prata,Georgia,serif;font-weight:400}
+.it{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600}
+.gold{background:linear-gradient(100deg,var(--gold2) 0%,var(--gold) 38%,#a8732a 66%,var(--gold2) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gm 9s linear infinite}
+@keyframes gm{to{background-position:-220% 0}}
+.grain::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:gs 1.2s steps(6) infinite}
+@keyframes gs{0%{transform:translate(0,0)}33%{transform:translate(-4%,3%)}66%{transform:translate(3%,-5%)}100%{transform:translate(-2%,2%)}}
+.glass{background:var(--glass);border:1px solid var(--line);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+.top{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 22px;border-radius:999px;z-index:50;transition:background .4s}
+.top.solid{background:rgba(14,11,10,.72)}
+.logo{font-family:Prata,serif;letter-spacing:.3em;font-size:13px;white-space:nowrap}
+.tr{display:flex;align-items:center;gap:10px}
+.langs{display:flex;gap:2px;padding:3px;border-radius:999px;background:rgba(0,0,0,.28)}
+.langs a{font-size:12px;font-weight:800;letter-spacing:.08em;padding:7px 11px;border-radius:999px;color:var(--muted);transition:color .3s,background .3s}
+.langs a:hover{color:var(--ink)}
+.langs a.on{background:var(--ink);color:#140d09}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:58px;padding:0 30px;border-radius:999px;font-weight:700;font-size:16px;cursor:pointer;border:0;font-family:inherit;white-space:nowrap;transition:box-shadow .4s var(--ease),background .3s,transform .2s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:linear-gradient(180deg,#f3d595,#d8a45a);color:#1a0f07;box-shadow:0 10px 40px -8px rgba(216,164,90,.55)}
+.btn-gold:hover{box-shadow:0 0 0 6px rgba(216,164,90,.16),0 16px 60px -6px rgba(216,164,90,.75)}
+.btn-ghost{background:var(--glass);border:1px solid var(--line);color:var(--ink);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:14px}
+.wa-ico{width:20px;height:20px;flex:none}
+.pl-ico{width:18px;height:18px;flex:none}
+.kick{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;padding:9px 16px;border-radius:999px}
+.kick i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 2.2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.ln{display:block;overflow:hidden;padding:.04em 0 .12em}
+.ln>span{display:inline-block}
+.sub{font-size:clamp(17px,1.35vw,20px);color:var(--muted);max-width:34em}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.sec{position:relative;padding:clamp(90px,12vw,160px) 0;overflow:hidden}
+.wrap{position:relative;width:min(1240px,calc(100% - 40px));margin:0 auto;z-index:2}
+.sk{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+.h2{font-size:clamp(34px,4.6vw,64px);line-height:1.08;margin:14px 0 0}
+.mbar{display:none}
+dialog.vid{margin:auto;border:0;padding:0;background:#000;border-radius:18px;overflow:hidden;width:min(1100px,94vw);box-shadow:0 30px 120px rgba(0,0,0,.7)}
+dialog.vid::backdrop{background:rgba(6,4,3,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog.vid video{width:100%;aspect-ratio:16/9;background:#000}
+dialog.vid button{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:22px;cursor:pointer;z-index:2}
+@media (max-width:760px){
+  body{font-size:16px}
+  .top{padding:6px 6px 6px 16px}.logo{font-size:11px;letter-spacing:.22em}
+  .top .btn-sm{display:none}
+  .langs a{padding:7px 9px}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;transform:translateY(140%);transition:transform .5s var(--ease)}
+  .mbar.on{transform:none}
+  .mbar .btn{width:100%}
+  .btn{min-height:56px;padding:0 24px}
+  .ctas .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.gold,.grain::after,.kick i{animation:none!important}}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:112px 0 calc(9vw + 40px)}
+.bgv{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:brightness(.42) contrast(1.05) saturate(.75) sepia(.2) blur(1.5px)}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,11,10,.9) 0%,rgba(14,11,10,.55) 50%,rgba(14,11,10,.35) 100%),linear-gradient(0deg,rgba(14,11,10,1) 0%,rgba(14,11,10,0) 40%)}
+.hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,600px);grid-template-areas:"t1 pl" "t2 pl";column-gap:clamp(30px,4.5vw,80px);align-items:center}
+.t1{grid-area:t1;align-self:end}.t2{grid-area:t2;align-self:start}
+.hero h1{font-size:clamp(42px,5.2vw,82px);line-height:1.03;margin:22px 0 20px}
+.hero h1 .it{font-size:1.12em;line-height:.95}
+.hero .sub{margin-bottom:30px;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.player{grid-area:pl;position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#000;border:1px solid rgba(243,215,155,.38);box-shadow:0 40px 100px -24px rgba(0,0,0,.9),0 0 90px -12px rgba(216,164,90,.4)}
+.player video{width:100%;height:100%;object-fit:cover;display:block}
+.pplay{position:absolute;inset:0;display:grid;place-items:center;border:0;padding:0;background:transparent;cursor:pointer;transition:opacity .3s}
+.pplay i{position:relative;display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#f3d79b,#d8a45a);color:#140d09;box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 50px -6px rgba(216,164,90,.75);transition:transform .35s var(--ease)}
+.pplay i::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(243,215,155,.7);animation:ring 1.8s ease-out infinite}
+@keyframes ring{from{opacity:.9;transform:scale(.96)}to{opacity:0;transform:scale(1.2)}}
+.pplay svg{width:34px;height:34px;margin-left:5px}
+.pplay:hover i{transform:scale(1.08)}
+.pdur{position:absolute;right:14px;bottom:14px;padding:5px 10px;border-radius:8px;background:rgba(14,11,10,.78);color:#fff;font:700 13px Manrope,sans-serif;letter-spacing:.04em}
+.pdur:empty{display:none}
+.player.on .pplay{opacity:0;pointer-events:none}
+.h2,.h2 *{text-wrap:balance}
+/* кнопка языка и окно выбора */
+.lbtn{display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:0 14px 0 11px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:var(--ink);font:800 13px Manrope,sans-serif;letter-spacing:.08em;cursor:pointer;transition:background .3s,border-color .3s}
+.lbtn:hover{background:rgba(255,255,255,.12);border-color:rgba(243,215,155,.5)}
+.lbtn svg{width:18px;height:18px}
+.lmod{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:20px;background:rgba(10,8,7,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;transition:opacity .25s}
+.lmod[hidden]{display:none}.lmod.on{opacity:1}
+.lbox{width:min(440px,100%);border-radius:28px;padding:34px 24px 24px;text-align:center;background:linear-gradient(160deg,rgba(163,20,30,.3),rgba(14,11,10,.94) 55%);border:1px solid rgba(243,215,155,.35);box-shadow:0 40px 120px rgba(0,0,0,.7),0 0 80px -20px rgba(216,164,90,.45);transform:translateY(14px) scale(.98);transition:transform .35s var(--ease)}
+.lmod.on .lbox{transform:none}
+.lmark{font-family:Prata,serif;letter-spacing:.32em;font-size:14px;margin-bottom:12px}
+.lq{color:var(--muted);font-size:15px;line-height:1.65;margin-bottom:22px}
+.lopts{display:grid;gap:10px}
+.lopts button{display:flex;align-items:center;justify-content:space-between;min-height:58px;padding:0 22px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:var(--ink);font:700 17px Manrope,sans-serif;cursor:pointer;transition:border-color .3s,transform .3s}
+.lopts button span{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:800}
+.lopts button:hover{border-color:rgba(243,215,155,.6);transform:translateY(-2px)}
+.lopts button.sug{background:linear-gradient(135deg,#f3d79b,#d8a45a);color:#140d09;border-color:transparent}
+.lopts button.sug span{color:rgba(20,13,9,.65)}
+/* значки в шапке */
+.soc{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 14px 0 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap;transition:background .3s,border-color .3s}
+.soc:hover{background:rgba(255,255,255,.12);border-color:rgba(243,215,155,.5)}
+.soc svg,.btn .ic{width:22px;height:22px;flex:none}
+.soc b{color:var(--gold2);font-weight:800}
+.mark{position:absolute;left:0;right:0;bottom:-.16em;text-align:center;line-height:1;letter-spacing:.04em;color:rgba(244,237,228,.9);white-space:nowrap;z-index:1;pointer-events:none}
+/* цифры */
+.facts{background:radial-gradient(60% 80% at 15% 0%,rgba(163,20,30,.26),transparent 70%),radial-gradient(50% 70% at 90% 100%,rgba(216,164,90,.14),transparent 70%),var(--bg)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.fact{border-radius:24px;padding:30px 26px 26px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .4s,transform .4s var(--ease)}
+.fact:hover{border-color:rgba(216,164,90,.5);transform:translateY(-4px)}
+.fact b{font-family:Prata,serif;font-weight:400;font-size:clamp(54px,5.6vw,84px);line-height:1}
+.fact span{color:var(--muted);font-size:17px}
+/* кого ищем */
+.who{background:var(--bg)}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.cat{border-radius:24px;overflow:hidden;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);transition:border-color .4s,transform .5s var(--ease)}
+.cat:hover{border-color:rgba(243,215,155,.5);transform:translateY(-6px)}
+.cat figure{margin:0;aspect-ratio:4/5;overflow:hidden}
+.cat img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.04);transition:transform 1.2s var(--ease)}
+.cat:hover img{transform:scale(1.06)}
+.cb{padding:20px 22px 24px}
+.cb h3{font-family:Prata,serif;font-weight:400;font-size:clamp(26px,2.3vw,34px);line-height:1.1;margin:0 0 8px}
+.cb p{color:var(--muted);font-size:16px}
+.wnote{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;color:var(--muted)}
+.wnote b{color:var(--ink);font-weight:700}
+/* форматы */
+.ways{background:radial-gradient(55% 70% at 85% 10%,rgba(163,20,30,.24),transparent 70%),var(--bg)}
+.wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.way{position:relative;border-radius:24px;padding:28px 24px 26px;display:flex;flex-direction:column;gap:12px;min-height:290px;overflow:hidden;transition:transform .5s var(--ease)}
+.way::before{content:"";position:absolute;inset:-1px;border-radius:24px;padding:1px;background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(243,215,155,.9),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none}
+.way:hover{transform:translateY(-6px)}.way:hover::before{opacity:1}
+.way.main{background:linear-gradient(160deg,rgba(163,20,30,.42),rgba(92,15,21,.18) 60%,rgba(255,255,255,.04));border-color:rgba(243,215,155,.4)}
+.way .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+.way h3{font-family:Prata,serif;font-weight:400;font-size:27px;line-height:1.12}
+.way p{color:var(--muted);font-size:16.5px}
+.way.own{grid-column:1/-1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);column-gap:40px;align-items:center;border:1px dashed rgba(243,215,155,.55);background:linear-gradient(100deg,rgba(216,164,90,.12),rgba(255,255,255,.03) 60%)}
+.way.own h3{font-size:34px}.way.own p{font-size:18px;color:var(--ink)}
+.wcta{display:flex;justify-content:center;margin-top:40px}
+/* шаги */
+.steps{background:var(--bg)}
+.sgrid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
+.sline{position:absolute;left:0;right:0;top:27px;height:1px;background:var(--line)}
+.sline i{position:absolute;inset:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transform-origin:left;transform:scaleX(0)}
+.st{position:relative}
+.st b{position:relative;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--bg);border:1px solid rgba(243,215,155,.5);font-family:Prata,serif;font-weight:400;font-size:22px;color:var(--gold2);margin-bottom:22px;box-shadow:0 0 30px -6px rgba(216,164,90,.5)}
+.st h3{font-family:Prata,serif;font-weight:400;font-size:25px;line-height:1.15;margin-bottom:8px}
+.st p{color:var(--muted);font-size:16.5px}
+/* галерея */
+.gal{background:linear-gradient(180deg,var(--bg),#140d0b 50%,var(--bg))}
+.gwrap{overflow:hidden;margin-top:46px;padding:6px 0 10px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.gwrap.drag{cursor:grabbing}
+.gtrack{display:flex;gap:18px;width:max-content;will-change:transform}
+.gi{flex:none;height:min(56vh,500px);border-radius:22px;overflow:hidden;margin:0;border:1px solid rgba(243,215,155,.18)}
+.gi img{height:100%;width:auto;display:block;object-fit:cover;pointer-events:none}
+.gi.v{aspect-ratio:3/4}.gi.h{aspect-ratio:16/10}
+.gi.v img,.gi.h img{width:100%}
+/* где мы */
+/* финал */
+.fin{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(40% 50% at 50% 55%,rgba(216,164,90,.2),transparent 70%),radial-gradient(70% 80% at 50% 50%,rgba(163,20,30,.25),transparent 75%),var(--bg)}
+.fin h2{font-size:clamp(44px,7vw,110px);line-height:1.02;margin-bottom:20px}
+.fin h2 [data-t]{white-space:pre-line}
+.fin p{color:var(--muted);max-width:28em;margin:0 auto 36px;font-size:clamp(17px,1.4vw,20px)}
+.fin .btn{min-height:66px;padding:0 40px;font-size:18px}
+.foot{padding:30px 0 110px;text-align:center;color:rgba(244,237,228,.45);font-size:13px;letter-spacing:.2em}
+@media (max-width:1000px){.cats{grid-template-columns:1fr 1fr}.wgrid{grid-template-columns:1fr 1fr}.sgrid{grid-template-columns:1fr 1fr;row-gap:44px}.sline{display:none}}
+@media (max-width:760px){
+  .hero{align-items:flex-start;padding:92px 0 calc(16vw + 26px)}
+  .shade{background:linear-gradient(0deg,rgba(14,11,10,1) 0%,rgba(14,11,10,.78) 50%,rgba(14,11,10,.45) 100%)}
+  .hgrid{grid-template-columns:1fr;grid-template-areas:"t1" "pl" "t2"}
+  .hero h1{font-size:clamp(34px,9.6vw,44px);margin:14px 0 18px}
+  .player{border-radius:16px;margin-bottom:20px}
+  .hero .sub{margin-bottom:22px}
+  .grid4{grid-template-columns:1fr 1fr;gap:10px}.fact{min-height:150px;padding:20px 16px;border-radius:18px}.fact span{font-size:14.5px}
+  .cats{gap:10px}.cat{border-radius:18px}.cb{padding:14px 14px 16px}.cb h3{font-size:22px}.cb p{font-size:14.5px}
+  .wgrid{grid-template-columns:1fr;gap:12px}.way{min-height:0}.way.own{grid-template-columns:1fr;row-gap:10px}.way.own h3{font-size:28px}
+  .soc{width:40px;min-height:40px;padding:0;justify-content:center}.soc span,.soc b{display:none}.lbtn{min-height:40px;padding:0 10px}.tr{gap:6px}
+  .pplay i{width:64px;height:64px}.pplay svg{width:28px;height:28px}
+  .sgrid{grid-template-columns:1fr;gap:34px}
+  .gtrack{gap:12px}.gi{height:340px;border-radius:16px}
+  .fin .btn{width:100%}
+  .fin h2{font-size:clamp(32px,9vw,44px)}
+}
+
+</style>
+</head>
+<body class="grain">
+<header class="top glass"><a class="logo" href="#">MAISON SAUVAGE</a>
+<div class="tr"><button class="lbtn" id="lbtn" type="button" aria-label="Language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span id="lcur"></span></button>
+<a class="soc" href="https://maps.app.goo.gl/B12BVyNP5apdKzZ76" target="_blank" rel="noopener" aria-label="Google Maps"><svg class="ic" viewBox="0 0 92.3 132.3" aria-hidden="true"><path fill="#1a73e8" d="M60.2 2.2C55.8.8 51 0 46.1 0 32 0 19.3 6.4 10.8 16.5l21.8 18.3L60.2 2.2z"/><path fill="#ea4335" d="M10.8 16.5C4.1 24.5 0 34.9 0 46.1c0 8.7 1.7 15.7 4.6 22l28-33.3-21.8-18.3z"/><path fill="#4285f4" d="M46.2 28.5c9.8 0 17.7 7.9 17.7 17.7 0 4.3-1.6 8.3-4.2 11.4 0 0 13.9-16.6 27.5-32.7-5.6-10.8-15.3-19-27-22.7L32.6 34.8c3.3-3.8 8.1-6.3 13.6-6.3"/><path fill="#fbbc04" d="M46.2 63.8c-9.8 0-17.7-7.9-17.7-17.7 0-4.3 1.5-8.3 4.1-11.3l-28 33.3c4.8 10.6 12.8 19.2 21 29.9l34.1-40.5c-3.3 3.9-8.1 6.3-13.5 6.3"/><path fill="#34a853" d="M59.1 109.2c15.4-24.1 33.3-35 33.3-63 0-7.7-1.9-14.9-5.2-21.3L25.6 98c2.6 3.4 5.3 7.3 7.9 11.3 9.4 14.5 6.8 23.1 12.8 23.1s3.4-8.7 12.8-23.2"/></svg><span data-t="top_maps"></span><b>4,9★</b></a>
+<a class="soc" href="https://www.instagram.com/maison.sauvage.bali/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><defs><radialGradient id="igg1" cx="28%" cy="105%" r="130%"><stop offset="0" stop-color="#fdf497"/><stop offset=".1" stop-color="#fdf497"/><stop offset=".45" stop-color="#fd5949"/><stop offset=".65" stop-color="#d6249f"/><stop offset=".95" stop-color="#285AEB"/></radialGradient></defs><rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="url(#igg1)"/><rect x="6" y="6" width="12" height="12" rx="3.8" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="12" r="2.9" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="15.9" cy="8.1" r="1" fill="#fff"/></svg><span>Instagram</span></a>
+<a class="btn btn-gold btn-sm" data-wa="wa_hi" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><span data-t="top_btn"></span></a></div></header>
+
+<section class="hero" data-hero>
+  <video class="bgv" autoplay muted loop playsinline poster="media/loop.jpg" src="media/loop.mp4"></video>
+  <div class="shade"></div>
+  <div class="wrap hgrid">
+    <div class="t1">
+      <h1 class="serif"><span class="ln"><span data-t="h1_0"></span></span><span class="ln"><span class="it gold" data-t="h1_1"></span></span></h1>
+    </div>
+    <div class="player" id="player" data-reveal data-delay=".25">
+      <video id="pv" playsinline preload="metadata"></video>
+      <button class="pplay" id="pplay" type="button"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l12.5-7.5z"/></svg></i><span class="pdur" id="pdur"></span></button>
+    </div>
+    <div class="t2">
+      <p class="sub" data-reveal data-delay=".35" data-t="sub"></p>
+      <div class="ctas" data-reveal data-delay=".5"><a class="btn btn-gold magnet" data-wa="wa_hi" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><span data-t="cta"></span></a></div>
+    </div>
+  </div>
+  <div class="mark serif" data-fit=".95">MAISON SAUVAGE</div>
+</section>
+
+<section class="sec facts">
+  <div class="wrap">
+    <div class="sk" data-reveal data-t="num_kick"></div>
+    <h2 class="h2 serif"><span class="ln"><span data-t="num_h"></span></span></h2>
+    <div class="grid4" id="facts"></div>
+  </div>
+</section>
+
+<section class="sec who">
+  <div class="wrap">
+    <div class="sk" data-reveal data-t="who_kick"></div>
+    <h2 class="h2 serif"><span class="ln"><span data-t="who_h"></span></span></h2>
+    <div class="cats" id="who"></div>
+    <div class="wnote" data-reveal><span data-t="who_extra"></span><b data-t="who_note"></b></div>
+  </div>
+</section>
+
+<section class="sec ways">
+  <div class="wrap">
+    <div class="sk" data-reveal data-t="ways_kick"></div>
+    <h2 class="h2 serif"><span class="ln"><span data-t="ways_h"></span></span></h2>
+    <div class="wgrid" id="ways"></div>
+    <div class="wcta" data-reveal><a class="btn btn-gold magnet" data-wa="wa_hi" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><span data-t="cta"></span></a></div>
+  </div>
+</section>
+
+<section class="sec steps">
+  <div class="wrap">
+    <div class="sk" data-reveal data-t="steps_kick"></div>
+    <h2 class="h2 serif"><span class="ln"><span data-t="steps_h"></span></span></h2>
+    <div class="sgrid" id="steps"><div class="sline"><i></i></div></div>
+  </div>
+</section>
+
+<section class="sec gal" id="gal">
+  <div class="wrap">
+    <div class="sk" data-reveal data-t="gal_kick"></div>
+    <h2 class="h2 serif"><span class="ln"><span data-t="gal_h"></span></span></h2>
+  </div>
+  <div class="gwrap" id="gwrap"><div class="gtrack" id="gtrack"></div></div>
+</section>
+
+<section class="fin">
+  <div class="wrap">
+    <h2 class="serif"><span class="ln"><span data-t="end_h"></span></span></h2>
+    <p data-reveal data-t="end_p"></p>
+    <div data-reveal><a class="btn btn-gold magnet fbtn" data-wa="wa_hi" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><span data-t="cta"></span></a></div>
+  </div>
+</section>
+<div class="foot">MAISON SAUVAGE · Jl. Raya Bumbak No.169, Umalas, Bali</div>
+<div class="lmod" id="lmod" hidden role="dialog" aria-label="Language">
+  <div class="lbox">
+    <div class="lmark">MAISON SAUVAGE</div>
+    <p class="lq">Pilih bahasa<br>Choose your language<br>Выберите язык</p>
+    <div class="lopts">
+      <button type="button" data-l="id"><b>Bahasa Indonesia</b><span>ID</span></button>
+      <button type="button" data-l="en"><b>English</b><span>EN</span></button>
+      <button type="button" data-l="ru"><b>Русский</b><span>RU</span></button>
+    </div>
+  </div>
+</div>
+<div class="mbar"><a class="btn btn-gold" data-wa="wa_hi" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><span data-t="cta"></span></a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const T = {"ru": {"num_kick": "Maison Sauvage", "num_h": "Магазин в цифрах", "html_lang": "ru", "title": "Maison Sauvage ищет бренды", "desc": "Мультибрендовый магазин в Умаласе, Бали, ищет бренды одежды, украшений, обуви и парфюмерии. Консигнация 50/50 и другие форматы.", "kick": "Для брендов", "h1": ["Ищем бренды", "для долгого партнёрства"], "sub": "Мультибрендовый магазин в Умаласе, Бали. Мы открыты к любому виду взаимодействия, если оно усиливает обе стороны.", "cta": "Написать в WhatsApp", "cta_video": "Ролик, 1 минута", "wa_hi": "Здравствуйте! Нам интересно сотрудничество с Maison Sauvage.", "facts": [["72", "бренда уже сотрудничают с нами"], ["2", "этажа, 300 м²"], ["4,9", "на Google Картах, 217 отзывов"], ["50/50", "консигнация"]], "who_kick": "Кого мы ищем", "who_h": "Красивые вещи с характером", "who": [["Одежда", "Женская и мужская, дизайнерские коллекции, аксессуары."], ["Украшения", "Авторские украшения и бижутерия."], ["Обувь", "Стильная и качественная."], ["Парфюмерия", "Нишевые ароматы."]], "who_extra": "Ещё искусство, авторский декор и необычные подарки.", "who_note": "Массовые сувениры не берём.", "ways_kick": "Как можно работать", "ways_h": "Основные форматы, по которым мы работаем", "ways": [["Консигнация 50/50", "Основной формат", "Вы привозите вещи, мы продаём их в зале. Выручку делим пополам. Деньги за вещь через месяц после продажи.", "Здравствуйте! Нам интересна консигнация."], ["Выкуп по оптовой цене", "Без консигнации", "Покупаем отдельные вещи для нашего зала по вашей оптовой цене.", "Здравствуйте! Нам интересен выкуп по оптовой цене."], ["Аренда места", "Фиксированная стоимость", "Место для продажи вашего бренда в нашем магазине за фиксированную стоимость.", "Здравствуйте! Нам интересна аренда места в магазине."], ["Быть на связи", "Новинки и бестселлеры", "Присылайте новые коллекции и бестселлеры в WhatsApp. Подберём вещи под наших покупателей.", "Здравствуйте! Хотим быть на связи и присылать новинки."], ["Свой формат", "Можете предложить свой", "Есть другие варианты? Предлагайте. Мы гибкие и обсудим любой формат, если он выгоден обеим сторонам.", "Здравствуйте! Хотим предложить свой формат сотрудничества."]], "way_btn": "Обсудить в WhatsApp", "steps_kick": "Как начать", "steps_h": "Четыре шага до первой выручки", "steps": [["Пишете нам", "В WhatsApp, одной кнопкой."], ["Показываете коллекцию", "Instagram, фото или образцы."], ["Подписываем договор", "И вы привозите вещи в магазин."], ["Продаём и платим", "Отчёт о продажах каждый месяц, деньги через месяц после продажи."]], "gal_kick": "Магазин", "gal_h": "Два этажа в Умаласе", "where_kick": "Где мы", "where_btn": "Открыть в Google Картах", "ig_btn": "Instagram магазина", "top_maps": "Google Карты", "end_h": "Давайте знакомиться", "end_p": "Напишите нам, и вместе найдём пути взаимодействия.", "lang_ru": "RU", "lang_en": "EN", "lang_id": "ID", "play": "Смотреть ролик", "c_pre": "Maison Sauvage ищет", "c_big": "БРЕНДЫ", "h1_0": "Ищем бренды", "h1_1": "для долгого партнёрства", "top_btn": "WhatsApp"}, "en": {"num_kick": "Maison Sauvage", "num_h": "The store in numbers", "html_lang": "en", "title": "Maison Sauvage is looking for brands", "desc": "A multi-brand store in Umalas, Bali, is looking for clothing, jewelry, footwear and perfume brands. 50/50 consignment and other formats.", "kick": "For brands", "h1": ["We’re looking for brands", "for long-term partnerships"], "sub": "A multi-brand store in Umalas, Bali. We’re open to any kind of collaboration, as long as it strengthens both sides.", "cta": "Message us on WhatsApp", "cta_video": "Watch, 1 minute", "wa_hi": "Hi! I’m interested in collaboration with Maison Sauvage.", "facts": [["72", "brands already work with us"], ["2", "floors, 300 m²"], ["4.9", "on Google Maps, 217 reviews"], ["50/50", "consignment"]], "who_kick": "What we’re looking for", "who_h": "Beautiful pieces with character", "who": [["Clothing", "Women’s and men’s, designer collections, accessories."], ["Jewelry", "Designer and costume jewelry."], ["Footwear", "Stylish and well made."], ["Perfume", "Niche fragrances."]], "who_extra": "Plus art, designer decor and unique gifts.", "who_note": "We don’t carry mass-produced souvenirs.", "ways_kick": "How we can work together", "ways_h": "Our main formats", "ways": [["50/50 consignment", "Our main format", "You bring the pieces, we sell them in our store. We split the revenue 50/50. You get paid for each piece one month after it sells.", "Hi! I’m interested in consignment."], ["Wholesale purchase", "No consignment", "We buy selected pieces for our store at your wholesale price.", "Hi! I’m interested in your wholesale purchase option."], ["Space rental", "Fixed fee", "A space in our store to sell your brand, for a fixed fee.", "Hi! I’m interested in renting a space in your store."], ["Stay in touch", "New arrivals and bestsellers", "Send us your new collections and bestsellers on WhatsApp. We’ll pick the pieces that suit our customers.", "Hi! I’m interested in staying in touch and sharing our new arrivals."], ["Your own format", "You can suggest your own", "Have other ideas? Tell us. We’re flexible and happy to discuss any format that works for both sides.", "Hi! I’m writing to suggest our own collaboration format."]], "way_btn": "Discuss on WhatsApp", "steps_kick": "Getting started", "steps_h": "Four steps to your first payout", "steps": [["Message us", "On WhatsApp, with one tap."], ["Show your collection", "Instagram, photos or samples."], ["We sign the agreement", "Then you bring your pieces to the store."], ["We sell and pay you", "A monthly sales report, payment one month after each sale."]], "gal_kick": "The store", "gal_h": "Two floors in Umalas", "where_kick": "Where we are", "where_btn": "Open in Google Maps", "ig_btn": "Our Instagram", "top_maps": "Google Maps", "end_h": "Let’s get\nto know each other", "end_p": "Message us, and together we’ll find ways to collaborate.", "lang_ru": "RU", "lang_en": "EN", "lang_id": "ID", "play": "Watch the video", "c_pre": "Maison Sauvage is looking for", "c_big": "BRANDS", "h1_0": "We’re looking for brands", "h1_1": "for long-term partnerships", "top_btn": "WhatsApp"}, "id": {"num_kick": "Maison Sauvage", "num_h": "Toko kami dalam angka", "html_lang": "id", "title": "Maison Sauvage mencari brand", "desc": "Toko multibrand di Umalas, Bali, mencari brand pakaian, perhiasan, alas kaki, dan parfum. Konsinyasi 50/50 dan format lainnya.", "kick": "Untuk brand", "h1": ["Kami mencari brand", "untuk kemitraan jangka panjang"], "sub": "Toko multibrand di Umalas, Bali. Kami terbuka untuk segala bentuk kerja sama, selama saling menguatkan.", "cta": "Hubungi kami di WhatsApp", "cta_video": "Video, 1 menit", "wa_hi": "Halo! Saya tertarik untuk bekerja sama dengan Maison Sauvage.", "facts": [["72", "brand sudah menjadi mitra kami"], ["2", "lantai, 300 m²"], ["4,9", "di Google Maps, 217 ulasan"], ["50/50", "konsinyasi"]], "who_kick": "Brand yang kami cari", "who_h": "Produk yang indah dan berkarakter", "who": [["Pakaian", "Wanita dan pria, koleksi desainer, aksesori."], ["Perhiasan", "Karya desainer dan perhiasan fashion."], ["Alas kaki", "Stylish dan berkualitas."], ["Parfum", "Wewangian niche."]], "who_extra": "Kami juga menerima karya seni, dekorasi desainer, dan hadiah unik.", "who_note": "Kami tidak menerima suvenir produksi massal.", "ways_kick": "Cara bekerja sama", "ways_h": "Format utama kerja sama kami", "ways": [["Konsinyasi 50/50", "Format utama", "Anda membawa produk, kami menjualnya di toko. Hasil penjualan dibagi dua. Setiap produk dibayar satu bulan setelah terjual.", "Halo! Saya tertarik dengan format konsinyasi."], ["Beli putus harga grosir", "Tanpa konsinyasi", "Kami membeli produk pilihan untuk toko kami dengan harga grosir Anda.", "Halo! Saya tertarik dengan format beli putus harga grosir."], ["Sewa tempat", "Biaya tetap", "Tempat di toko kami untuk menjual produk brand Anda, dengan biaya sewa tetap.", "Halo! Saya tertarik menyewa tempat di toko Anda."], ["Tetap terhubung", "Koleksi baru dan best seller", "Kirimkan koleksi baru dan best seller Anda lewat WhatsApp. Kami akan memilih produk yang cocok untuk pelanggan kami.", "Halo! Saya ingin tetap terhubung dan mengirimkan koleksi baru kami."], ["Format Anda sendiri", "Silakan usulkan format Anda", "Punya ide lain? Sampaikan saja. Kami fleksibel dan siap membahas format apa pun, selama saling menguntungkan.", "Halo! Saya ingin mengusulkan format kerja sama kami sendiri."]], "way_btn": "Diskusi di WhatsApp", "steps_kick": "Cara memulai", "steps_h": "Empat langkah menuju hasil penjualan pertama", "steps": [["Hubungi kami", "Lewat WhatsApp, cukup satu klik."], ["Tunjukkan koleksi Anda", "Instagram, foto, atau sampel."], ["Tanda tangan perjanjian", "Lalu Anda membawa produk ke toko."], ["Kami menjual dan membayar", "Laporan penjualan setiap bulan, pembayaran satu bulan setelah produk terjual."]], "gal_kick": "Toko kami", "gal_h": "Dua lantai di Umalas", "where_kick": "Lokasi", "where_btn": "Buka di Google Maps", "ig_btn": "Instagram toko", "top_maps": "Google Maps", "end_h": "Mari berkenalan", "end_p": "Hubungi kami, lalu kita temukan bersama bentuk kerja sama yang tepat.", "lang_ru": "RU", "lang_en": "EN", "lang_id": "ID", "play": "Tonton video", "c_pre": "Maison Sauvage mencari", "c_big": "BRAND", "h1_0": "Kami mencari brand", "h1_1": "untuk kemitraan jangka panjang", "top_btn": "WhatsApp"}}, ENABLED = ["id", "en", "ru"], GAL = ["fasad-glavnoe", "zal-1", "kadr-116", "podium-2", "lounge-2", "zal-2", "kadr-25", "zal-3"];
+const WA = "6285190769733", IG = "https://ig.me/m/maison.sauvage.bali", WA_SVG = "<svg class=\"wa-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z\"/></svg>", VIDEO_LANGS = ["ru", "en", "id"], POSTER_LANGS = ["ru", "en", "id"];
+const qs = new URLSearchParams(location.search), LS = 'ms_br_lang';
+const qsL = (qs.get('lang') || '').toLowerCase();
+let saved = null; try { saved = localStorage.getItem(LS); } catch (e) {}
+let lang = (qsL || saved || (navigator.language || '').slice(0, 2)).toLowerCase();
+if (!ENABLED.includes(lang)) lang = ENABLED.includes('en') ? 'en' : ENABLED[0];
+let L = T[lang];
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const waHref = (msg) => WA ? 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg) : IG;
+const CAT = [['odezhda', '50% 50%'], ['ukrasheniya', '50% 40%'], ['obuv', '50% 50%'], ['parfyum', '60% 75%']];
+const pv = document.getElementById('pv'), player = document.getElementById('player'), pplay = document.getElementById('pplay'), pdur = document.getElementById('pdur');
+pv.addEventListener('loadedmetadata', () => { const d = Math.floor(pv.duration); if (d) pdur.textContent = Math.floor(d / 60) + ':' + String(d % 60).padStart(2, '0'); });
+const started = () => { player.classList.add('on'); pv.controls = true; };
+pplay.addEventListener('click', () => { started(); pv.play().catch(() => {}); });
+pv.addEventListener('play', started);
+function render() {
+  L = T[lang];
+  document.documentElement.lang = L.html_lang; document.title = L.title;
+  document.getElementById('lcur').textContent = lang.toUpperCase();
+  document.getElementById('facts').innerHTML = L.facts.map(([n, t], i) => {
+    const num = /^\d+$/.test(n) ? `<b data-count="${n}">${n}</b>` : `<b>${esc(n)}</b>`;
+    return `<div class="fact glass" data-reveal data-delay="${i * .08}">${num}<span>${esc(t)}</span></div>`; }).join('');
+  document.getElementById('who').innerHTML = L.who.map(([h, p], i) => `<div class="cat" data-reveal data-delay="${i * .08}"><figure><img src="media/cat-${CAT[i][0]}.jpg" alt="${esc(h)}" loading="lazy" style="object-position:${CAT[i][1]}"></figure><div class="cb"><h3>${esc(h)}</h3><p>${esc(p)}</p></div></div>`).join('');
+  document.getElementById('ways').innerHTML = L.ways.map(([h, tag, p], i) => i === 4
+    ? `<div class="way glass own" data-reveal><div><div class="tag">${esc(tag)}</div><h3>${esc(h)}</h3></div><p>${esc(p)}</p></div>`
+    : `<div class="way glass${i === 0 ? ' main' : ''}" data-reveal data-delay="${i * .08}"><div class="tag">${esc(tag)}</div><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('');
+  document.querySelectorAll('.way').forEach(c => c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); }));
+  document.querySelectorAll('#steps .st').forEach(e => e.remove());
+  document.getElementById('steps').insertAdjacentHTML('beforeend', L.steps.map(([h, p], i) => `<div class="st" data-reveal data-delay="${i * .12}"><b>${i + 1}</b><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join(''));
+  document.querySelectorAll('[data-t]').forEach(el => { const v = L[el.dataset.t]; if (v != null) el.textContent = v; });
+  document.querySelectorAll('[data-wa]').forEach(a => { a.href = waHref(L[a.dataset.wa] || a.dataset.wa); });
+  pplay.setAttribute('aria-label', L.play);
+  player.classList.remove('on'); pv.controls = false; pdur.textContent = '';
+  const vl = VIDEO_LANGS.includes(lang) && POSTER_LANGS.includes(lang) ? lang : 'ru';
+  pv.poster = 'media/poster_' + vl + '.jpg'; pv.src = 'media/video_' + vl + '.mp4';
+}
+render();
+const gOne = GAL.map(g => `<figure class="gi ${/^kadr|^zal-[12]|^fasad/.test(g) ? 'h' : 'v'}"><img src="media/${g}.jpg" alt="" draggable="false"></figure>`).join('');
+const gw = document.getElementById('gwrap'), gt = document.getElementById('gtrack');
+gt.innerHTML = gOne + gOne;
+let gOff = 0, gDrag = null, gIdle = 0, gLast = performance.now();
+const gHalf = () => gt.scrollWidth / 2;
+const gWrap = () => { const h = gHalf(); if (h > 0) gOff = ((gOff % h) + h) % h; };
+gw.addEventListener('pointerdown', e => { gDrag = { x: e.clientX, o: gOff }; gw.classList.add('drag'); });
+addEventListener('pointermove', e => { if (!gDrag) return; gOff = gDrag.o - (e.clientX - gDrag.x); gWrap(); });
+const gEnd = () => { if (!gDrag) return; gDrag = null; gw.classList.remove('drag'); gIdle = performance.now() + 1500; };
+addEventListener('pointerup', gEnd); addEventListener('pointercancel', gEnd);
+gw.addEventListener('wheel', e => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { e.preventDefault(); gOff += e.deltaX; gWrap(); gIdle = performance.now() + 1500; } }, { passive: false });
+const gTick = t => { const dt = Math.min(64, t - gLast); gLast = t;
+  if (!gDrag && t > gIdle) { gOff += dt * (gw.matches(':hover') && matchMedia('(hover: hover)').matches ? .018 : .045); gWrap(); }
+  gt.style.transform = `translate3d(${-gOff}px,0,0)`; requestAnimationFrame(gTick); };
+requestAnimationFrame(gTick);
+const fitAll = () => document.querySelectorAll('[data-fit]').forEach(k => { k.style.fontSize = '100px'; const r = document.createRange(); r.selectNodeContents(k);
+  const w = r.getBoundingClientRect().width, W = k.parentElement.clientWidth * parseFloat(k.dataset.fit || .97); if (w) k.style.fontSize = (100 * W / w).toFixed(2) + 'px'; });
+fitAll(); document.fonts.ready.then(() => { fitAll(); if (window.ScrollTrigger) ScrollTrigger.refresh(); }); addEventListener('resize', fitAll);
+const lmod = document.getElementById('lmod'), lbtn = document.getElementById('lbtn');
+const openL = () => { lmod.querySelectorAll('[data-l]').forEach(b => b.classList.toggle('sug', b.dataset.l === lang)); lmod.hidden = false; requestAnimationFrame(() => lmod.classList.add('on')); };
+const closeL = () => { lmod.classList.remove('on'); setTimeout(() => { lmod.hidden = true; }, 260); };
+lmod.addEventListener('click', e => { const b = e.target.closest('[data-l]');
+  if (b) { const nl = b.dataset.l; try { localStorage.setItem(LS, nl); } catch (x) {} saved = nl;
+    if (nl !== lang) { lang = nl; render(); fitAll(); if (window.ScrollTrigger) ScrollTrigger.refresh(); } closeL(); }
+  else if (e.target === lmod && saved) closeL(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !lmod.hidden && saved) closeL(); });
+if (ENABLED.length < 2) lbtn.remove(); else { lbtn.addEventListener('click', openL); if (!qsL && !saved) openL(); }
+const topEl = document.querySelector('.top'), mbar = document.querySelector('.mbar'), fin = document.querySelector('.fin');
+const onScroll = () => { const y = scrollY, fr = fin.getBoundingClientRect(); topEl.classList.toggle('solid', y > 40); mbar.classList.toggle('on', y > innerHeight * .7 && fr.top > innerHeight * .6); };
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+if (window.gsap && !reduce) {
+  gsap.registerPlugin(ScrollTrigger);
+  if (window.Lenis) { const lenis = new Lenis({ lerp: .09, smoothWheel: true }); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
+  document.fonts.ready.then(() => {
+    gsap.from('[data-hero] .ln>span', { yPercent: 115, duration: 1.25, ease: 'expo.out', stagger: .12, delay: .15 });
+    document.querySelectorAll('.sec .ln>span, .fin .ln>span').forEach(el => gsap.from(el, { yPercent: 115, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+    ScrollTrigger.refresh();
+  });
+  document.querySelectorAll('[data-reveal]').forEach(el => gsap.from(el, { y: 36, opacity: 0, duration: 1, ease: 'power3.out', delay: parseFloat(el.dataset.delay || 0),
+    scrollTrigger: el.closest('[data-hero]') ? null : { trigger: el, start: 'top 88%' } }));
+  document.querySelectorAll('[data-count]').forEach(el => { const end = parseFloat(el.dataset.count), o = { v: 0 };
+    gsap.to(o, { v: end, duration: 2, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%' }, onUpdate: () => el.textContent = Math.round(o.v) }); });
+  document.querySelectorAll('[data-shutter]').forEach(el => { const img = el.querySelector('img');
+    gsap.fromTo(el, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'expo.inOut', scrollTrigger: { trigger: el, start: 'top 85%' } });
+    gsap.fromTo(img, { scale: 1.3 }, { scale: 1, duration: 1.8, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } }); });
+  gsap.to('.mark', { yPercent: -60, opacity: 0, filter: 'blur(14px)', letterSpacing: '.22em', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.from('.mark', { yPercent: 40, opacity: 0, duration: 1.6, ease: 'expo.out', delay: .2 });
+  gsap.to('.bgv', { scale: 1.12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.to('.sline i', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.sgrid', start: 'top 75%', end: 'bottom 55%', scrub: true } });
+  if (fine) document.querySelectorAll('.magnet').forEach(el => {
+    const x = gsap.quickTo(el, 'x', { duration: .5, ease: 'power3' }), y = gsap.quickTo(el, 'y', { duration: .5, ease: 'power3' });
+    el.addEventListener('mousemove', e => { const r = el.getBoundingClientRect(); x((e.clientX - r.left - r.width / 2) * .3); y((e.clientY - r.top - r.height / 2) * .4); });
+    el.addEventListener('mouseleave', () => { x(0); y(0); });
+  });
+}
+</script>
+</body>
+</html>
